@@ -1,0 +1,71 @@
+@import "tailwindcss";
+
+@theme {
+  /* ---- Smart Farmer AI · "Fieldnote" palette ------------------------- */
+  --color-canopy: #0f3d2e;   /* deep green — headings, primary text      */
+  --color-canopy-70: #35594c;
+  --color-leaf: #1b7a45;     /* primary action                           */
+  --color-leaf-dark: #146036;
+  --color-sprout: #34c77b;   /* fresh accent, success, selected          */
+  --color-wash: #e4f5ea;     /* tinted surface                           */
+  --color-wash-deep: #cfeeda;
+  --color-cream: #fbf8f1;    /* app background                           */
+  --color-surface: #ffffff;
+  --color-sun: #f5a524;      /* market / price / warning                 */
+  --color-sun-wash: #fdf1dc;
+  --color-soil: #8a6a4f;     /* earth accent                             */
+  --color-soil-wash: #f3ece4;
+  --color-clay: #e5484d;     /* alert, disease severity                  */
+  --color-clay-wash: #fdeaea;
+  --color-sky: #3b93e0;      /* weather / water                          */
+  --color-sky-wash: #e6f1fb;
+  --color-muted: #6b7a72;    /* secondary text                           */
+  --color-hair: #ece7db;     /* hairline                                 */
+
+  --font-display: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+
+  --radius-card: 24px;
+  --radius-xl2: 28px;
+
+  --shadow-soft: 0 8px 24px rgba(15, 61, 46, 0.08);
+  --shadow-lift: 0 16px 40px rgba(15, 61, 46, 0.14);
+  --shadow-press: 0 2px 8px rgba(15, 61, 46, 0.12);
+}
+
+@layer base {
+  html {
+    -webkit-tap-highlight-color: transparent;
+  }
+  body {
+    margin: 0;
+    background: #eef1ec;
+    color: var(--color-canopy);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+  h1, h2, h3, h4, .font-display {
+    font-family: var(--font-display);
+    letter-spacing: -0.02em;
+  }
+  button { font-family: inherit; }
+}
+
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar { display: none; }
+  .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+  /* soft paper grain for the app background */
+  .grain {
+    background-image: radial-gradient(rgba(15, 61, 46, 0.035) 1px, transparent 1px);
+    background-size: 18px 18px;
+  }
+}
+
+/* Respect the user's motion preference across every Motion animation. */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
